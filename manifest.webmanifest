@@ -1,0 +1,13 @@
+{
+  "name": "Вища чи нижча?",
+  "short_name": "Вища чи нижча",
+  "description": "Карткова гра Higher or Lower",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#101418",
+  "theme_color": "#101418",
+  "lang": "uk",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

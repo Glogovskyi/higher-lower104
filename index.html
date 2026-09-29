@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#101418"
+    >
+
+    <title>Вища чи нижча?</title>
+
+    <link
+        rel="stylesheet"
+        href="./style.css"
+    >
+
+    <link rel="manifest" href="./manifest.webmanifest">
+    <link rel="icon" href="./icon.svg" type="image/svg+xml">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         ГОЛОВНЕ МЕНЮ
+    ====================================================== -->
+
+    <div
+        id="mainMenu"
+        class="screen menu-screen"
+    >
+
+        <div class="menu-box">
+
+            <div class="menu-logo">
+                🃏
+            </div>
+
+            <h1 id="mainTitle">
+                ВИЩА ЧИ НИЖЧА?
+            </h1>
+
+            <p
+                id="mainSubtitle"
+                class="menu-subtitle"
+            >
+                Карткова гра
+            </p>
+
+            <div
+                id="continueGameArea"
+                class="continue-game-area hidden"
+            >
+
+                <div class="continue-game-info">
+
+                    <strong id="continueGameTitle">
+                        ЗБЕРЕЖЕНА ГРА
+                    </strong>
+
+                    <span id="continueGameDescription">
+                        Є незавершена партія
+                    </span>
+
+                </div>
+
+                <button
+                    id="continueGameButton"
+                    class="menu-button continue-button"
+                >
+                    ▶ ПРОДОВЖИТИ
+                </button>
+
+            </div>
+
+            <div class="menu-buttons">
+
+                <button
+                    id="playButton"
+                    class="menu-button primary-menu-button"
+                >
+                    ГРАТИ
+                </button>
+
+                <button
+                    id="howToPlayButton"
+                    class="menu-button"
+                >
+                    ЯК ГРАТИ
+                </button>
+
+                <button
+                    id="profileButton"
+                    class="menu-button"
+                >
+                    ПРОФІЛЬ
+                </button>
+
+                <button
+                    id="settingsButton"
+                    class="menu-button"
+                >
+                    НАЛАШТУВАННЯ
+                </button>
+
+                <button
+                    id="logoutButton"
+                    class="menu-button logout-button"
+                >
+                    ВИЙТИ
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ВИБІР КОЛОДИ
+    ====================================================== -->
+
+    <div
+        id="deckMenu"
+        class="screen menu-screen hidden"
+    >
+
+        <div class="menu-box">
+
+            <h1 id="deckMenuTitle">
+                ОБЕРИ КОЛОДУ
+            </h1>
+
+            <p
+                id="deckMenuDescription"
+                class="menu-description"
+            >
+                З якою колодою хочеш грати?
+            </p>
+
+            <div class="deck-choice-buttons">
+
+                <button
+                    id="deck36Button"
+                    class="menu-button primary-menu-button"
+                >
+
+                    <span
+                        id="deck36Title"
+                        class="deck-choice-title"
+                    >
+                        36 КАРТ
+                    </span>
+
+                    <span
+                        id="deck36Description"
+                        class="deck-choice-description"
+                    >
+                        Від 6 до Т
+                    </span>
+
+                    <span
+                        id="deck36Difficulty"
+                        class="deck-choice-difficulty"
+                    >
+                        Складність: —
+                    </span>
+
+                </button>
+
+                <button
+                    id="deck54Button"
+                    class="menu-button primary-menu-button"
+                >
+
+                    <span
+                        id="deck54Title"
+                        class="deck-choice-title"
+                    >
+                        54 КАРТИ
+                    </span>
+
+                    <span
+                        id="deck54Description"
+                        class="deck-choice-description"
+                    >
+                        Від 2 до JOKER
+                    </span>
+
+                    <span
+                        id="deck54Difficulty"
+                        class="deck-choice-difficulty"
+                    >
+                        Складність: —
+                    </span>
+
+                </button>
+
+            </div>
+
+            <button
+                id="backToMenuButton"
+                class="back-button"
+            >
+                ← НАЗАД
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ПРОФІЛЬ
+    ====================================================== -->
+
+    <div
+        id="profileScreen"
+        class="screen menu-screen hidden"
+    >
+
+        <div class="menu-box profile-box">
+
+            <div class="profile-avatar">
+                🃏
+            </div>
+
+            <h1 id="profileTitle">
+                ПРОФІЛЬ
+            </h1>
+
+            <div class="profile-name-area">
+
+                <label
+                    id="nicknameLabel"
+                    for="nicknameInput"
+                >
+                    Нікнейм
+                </label>
+
+                <input
+                    id="nicknameInput"
+                    class="text-input"
+                    type="text"
+                    maxlength="20"
+                    autocomplete="off"
+                    placeholder="Введи нікнейм"
+                >
+
+                <button
+                    id="saveNicknameButton"
+                    class="small-action-button"
+                >
+                    ЗБЕРЕГТИ
+                </button>
+
+            </div>
+
+            <div class="statistics">
+
+                <div
+                    id="statisticsTitle"
+                    class="statistics-title"
+                >
+                    СТАТИСТИКА
+                </div>
+
+                <div class="statistics-grid">
+
+                    <div class="stat-card">
+
+                        <div
+                            id="statistics36Title"
+                            class="stat-card-title"
+                        >
+                            36 КАРТ
+                        </div>
+
+                        <div>
+                            <span id="gamesLabel36">
+                                Ігор:
+                            </span>
+
+                            <strong id="games36">
+                                0
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span id="averageLabel36">
+                                Середній результат:
+                            </span>
+
+                            <strong id="average36">
+                                0
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span id="bestLabel36">
+                                Найкращий результат:
+                            </span>
+
+                            <strong id="best36">
+                                0
+                            </strong>
+                        </div>
+
+                    </div>
+
+                    <div class="stat-card">
+
+                        <div
+                            id="statistics54Title"
+                            class="stat-card-title"
+                        >
+                            54 КАРТИ
+                        </div>
+
+                        <div>
+                            <span id="gamesLabel54">
+                                Ігор:
+                            </span>
+
+                            <strong id="games54">
+                                0
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span id="averageLabel54">
+                                Середній результат:
+                            </span>
+
+                            <strong id="average54">
+                                0
+                            </strong>
+                        </div>
+
+                        <div>
+                            <span id="bestLabel54">
+                                Найкращий результат:
+                            </span>
+
+                            <strong id="best54">
+                                0
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="extended-statistics">
+
+                    <div class="extended-stat-title">
+                        <span id="overallStatisticsTitle">
+                            ЗАГАЛЬНА СТАТИСТИКА
+                        </span>
+                    </div>
+
+                    <div class="extended-stat-grid">
+
+                        <div class="extended-stat-item">
+                            <span id="totalCardsLabel">
+                                Використано карт
+                            </span>
+                            <strong id="totalCardsUsed">
+                                0
+                            </strong>
+                        </div>
+
+                        <div class="extended-stat-item">
+                            <span id="correctMovesLabel">
+                                Правильні ходи
+                            </span>
+                            <strong id="correctMoves">
+                                0
+                            </strong>
+                        </div>
+
+                        <div class="extended-stat-item">
+                            <span id="wrongMovesLabel">
+                                Неправильні ходи
+                            </span>
+                            <strong id="wrongMoves">
+                                0
+                            </strong>
+                        </div>
+
+                        <div class="extended-stat-item">
+                            <span id="lostStacksLabel">
+                                Втрачені стопки
+                            </span>
+                            <strong id="lostStacks">
+                                0
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="achievements-preview">
+
+                    <div class="extended-stat-title">
+
+                        <span id="achievementsPreviewTitle">
+                            ДОСЯГНЕННЯ
+                        </span>
+
+                        <span
+                            id="achievementsProgress"
+                            class="achievement-progress-text"
+                        >
+                            0 / 0
+                        </span>
+
+                    </div>
+
+                    <button
+                        id="openAchievementsButton"
+                        class="small-action-button secondary-action"
+                    >
+                        🏆 ДОСЯГНЕННЯ
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button
+                id="backFromProfileButton"
+                class="back-button"
+            >
+                ← НАЗАД
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ДОСЯГНЕННЯ
+    ====================================================== -->
+
+    <div
+        id="achievementsScreen"
+        class="screen menu-screen hidden"
+    >
+
+        <div class="menu-box achievements-box">
+
+            <div class="screen-heading-row">
+
+                <h1 id="achievementsTitle">
+                    ДОСЯГНЕННЯ
+                </h1>
+
+                <span
+                    id="achievementsCount"
+                    class="achievement-count"
+                >
+                    0 / 0
+                </span>
+
+            </div>
+
+            <div
+                id="achievementsList"
+                class="achievements-list"
+            ></div>
+
+            <button
+                id="backFromAchievementsButton"
+                class="back-button"
+            >
+                ← НАЗАД
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ЯК ГРАТИ
+    ====================================================== -->
+
+    <div
+        id="howToPlayScreen"
+        class="screen menu-screen hidden"
+    >
+
+        <div class="menu-box how-to-play-box">
+
+            <h1 id="howToPlayTitle">
+                ЯК ГРАТИ
+            </h1>
+
+            <div class="rules-list">
+
+                <div class="rule-item">
+
+                    <span class="rule-number">
+                        1
+                    </span>
+
+                    <div>
+                        <strong id="rule1Title">
+                            Обери стопку
+                        </strong>
+
+                        <p id="rule1Text">
+                            На столі є шість активних стопок. Обери одну, щоб зробити хід.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="rule-item">
+
+                    <span class="rule-number">
+                        2
+                    </span>
+
+                    <div>
+                        <strong id="rule2Title">
+                            Передбач карту
+                        </strong>
+
+                        <p id="rule2Text">
+                            Вгадай, чи наступна карта буде більшою або меншою за поточну.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="rule-item">
+
+                    <span class="rule-number">
+                        3
+                    </span>
+
+                    <div>
+                        <strong id="rule3Title">
+                            Правильний хід
+                        </strong>
+
+                        <p id="rule3Text">
+                            Якщо прогноз правильний, карта залишається у стопці, і ти можеш продовжувати.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="rule-item">
+
+                    <span class="rule-number">
+                        4
+                    </span>
+
+                    <div>
+                        <strong id="rule4Title">
+                            Неправильний хід
+                        </strong>
+
+                        <p id="rule4Text">
+                            Якщо прогноз неправильний, поточна стопка втрачається.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="rule-item">
+
+                    <span class="rule-number">
+                        5
+                    </span>
+
+                    <div>
+                        <strong id="rule5Title">
+                            Кінець гри
+                        </strong>
+
+                        <p id="rule5Text">
+                            Гра завершується, коли колода закінчується або всі шість стопок втрачені.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="rule-item">
+
+                    <span class="rule-number">
+                        🃏
+                    </span>
+
+                    <div>
+                        <strong id="rule6Title">
+                            Joker
+                        </strong>
+
+                        <p id="rule6Text">
+                            Joker має найвище значення. Після нього можна прогнозувати тільки «Менше».
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button
+                id="backFromHowToPlayButton"
+                class="back-button"
+            >
+                ← НАЗАД
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         НАЛАШТУВАННЯ
+    ====================================================== -->
+
+    <div
+        id="settingsScreen"
+        class="screen menu-screen hidden"
+    >
+
+        <div class="menu-box settings-box">
+
+            <h1 id="settingsTitle">
+                НАЛАШТУВАННЯ
+            </h1>
+
+            <div class="settings-list">
+
+                <div class="setting-row">
+
+                    <div class="setting-text">
+
+                        <strong id="languageTitle">
+                            Мова
+                        </strong>
+
+                        <span id="languageDescription">
+                            Мова інтерфейсу
+                        </span>
+
+                    </div>
+
+                    <select
+                        id="languageSelect"
+                        class="setting-select"
+                    >
+
+                        <option value="uk">
+                            Українська
+                        </option>
+
+                        <option value="en">
+                            English
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="setting-row">
+
+                    <div class="setting-text">
+
+                        <strong id="soundTitle">
+                            Звук
+                        </strong>
+
+                        <span id="soundDescription">
+                            Звукові ефекти гри
+                        </span>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            id="soundToggle"
+                            type="checkbox"
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="setting-row volume-setting-row">
+
+                    <div class="setting-text">
+
+                        <strong id="volumeTitle">
+                            Гучність
+                        </strong>
+
+                        <span id="volumeDescription">
+                            Гучність звукових ефектів
+                        </span>
+
+                    </div>
+
+                    <div class="volume-control">
+
+                        <input
+                            id="volumeSlider"
+                            type="range"
+                            min="0"
+                            max="100"
+                            value="60"
+                        >
+
+                        <span id="volumeValue">
+                            60%
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <div class="setting-row">
+
+                    <div class="setting-text">
+
+                        <strong id="animationTitle">
+                            Анімації
+                        </strong>
+
+                        <span id="animationDescription">
+                            Анімації карт
+                        </span>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            id="animationToggle"
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="setting-row">
+
+                    <div class="setting-text">
+
+                        <strong id="difficultyIndicatorTitle">
+                            Індикатор складності
+                        </strong>
+
+                        <span id="difficultyIndicatorDescription">
+                            Показувати складність колоди
+                        </span>
+
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            id="difficultyToggle"
+                            type="checkbox"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+                <div class="setting-row setting-column-row">
+
+                    <div class="setting-text">
+
+                        <strong id="themeTitle">
+                            Тема
+                        </strong>
+
+                        <span id="themeDescription">
+                            Візуальний стиль гри
+                        </span>
+
+                    </div>
+
+                    <select
+                        id="themeSelect"
+                        class="setting-select"
+                    >
+
+                        <option value="classic">
+                            Класична
+                        </option>
+
+                        <option value="midnight">
+                            Північ
+                        </option>
+
+                        <option value="royal">
+                            Королівська
+                        </option>
+
+                        <option value="crimson">
+                            Багряна
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="setting-row setting-column-row">
+
+                    <div class="setting-text">
+
+                        <strong id="cardBackTitle">
+                            Сорочка карт
+                        </strong>
+
+                        <span id="cardBackDescription">
+                            Стиль зворотної сторони карт
+                        </span>
+
+                    </div>
+
+                    <select
+                        id="cardBackSelect"
+                        class="setting-select"
+                    >
+
+                        <option value="embroidered">
+                            Вишивка
+                        </option>
+
+                        <option value="diamond">
+                            Ромби
+                        </option>
+
+                        <option value="minimal">
+                            Мінімалістична
+                        </option>
+
+                        <option value="royal">
+                            Королівська
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <button
+                id="backFromSettingsButton"
+                class="back-button"
+            >
+                ← НАЗАД
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ГРА
+    ====================================================== -->
+
+    <div
+        id="gameScreen"
+        class="hidden"
+    >
+
+        <div class="game">
+
+            <h1 id="gameTitle">
+                🃏 Вища чи нижча?
+            </h1>
+
+            <div class="top">
+
+                <button
+                    id="backFromGameButton"
+                    class="game-menu-button"
+                >
+                    ← Меню
+                </button>
+
+                <div
+                    id="gameDifficultyIndicator"
+                    class="difficulty-indicator"
+                >
+                    <span id="gameDifficultyLabel">
+                        Складність
+                    </span>
+
+                    <strong id="gameDifficultyValue">
+                        —
+                    </strong>
+                </div>
+
+            </div>
+
+            <div class="info">
+
+                <div>
+                    <span id="scoreLabel">
+                        Очки:
+                    </span>
+
+                    <span id="score">
+                        0
+                    </span>
+                </div>
+
+                <div>
+                    <span id="cardsLeftLabel">
+                        Карт залишилось:
+                    </span>
+
+                    <span id="cardsLeft">
+                        0
+                    </span>
+                </div>
+
+                <div>
+                    <span id="stacksLeftLabel">
+                        Стопок залишилось:
+                    </span>
+
+                    <span id="stacksLeft">
+                        6
+                    </span>
+                </div>
+
+            </div>
+
+            <p id="message">
+                Вибери одну зі стопок.
+            </p>
+
+            <div class="table">
+
+                <div
+                    id="stacks"
+                    class="stacks"
+                ></div>
+
+                <div class="deck-area">
+
+                    <div
+                        id="deckVisual"
+                        class="deck-visual"
+                    ></div>
+
+                    <div
+                        id="deckCount"
+                        class="deck-count"
+                    >
+                        0
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="buttons">
+
+                <button id="lower">
+                    ⬇ Менше
+                </button>
+
+                <button id="higher">
+                    ⬆ Більше
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             ВІКНО РЕЗУЛЬТАТУ
+        ================================================== -->
+
+        <div
+            id="gameResultOverlay"
+            class="game-result-overlay hidden"
+        >
+
+            <div class="game-result-modal">
+
+                <div class="result-icon">
+                    🏆
+                </div>
+
+                <h2 id="gameResultTitle">
+                    ГРУ ЗАВЕРШЕНО
+                </h2>
+
+                <p
+                    id="gameResultReason"
+                    class="result-reason"
+                >
+                    Колода закінчилася!
+                </p>
+
+                <div class="result-score-block">
+
+                    <span id="resultScoreLabel">
+                        Твій результат
+                    </span>
+
+                    <strong id="resultScore">
+                        0 / 36
+                    </strong>
+
+                </div>
+
+                <div class="result-details">
+
+                    <div class="result-detail">
+
+                        <span id="resultCardsLabel">
+                            Використано карт
+                        </span>
+
+                        <strong id="resultCards">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="result-detail">
+
+                        <span id="resultLostStacksLabel">
+                            Втрачені стопки
+                        </span>
+
+                        <strong id="resultLostStacks">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="result-detail">
+
+                        <span id="resultRemainingCardsLabel">
+                            Карт у колоді
+                        </span>
+
+                        <strong id="resultRemainingCards">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="result-detail">
+
+                        <span id="resultCorrectMovesLabel">
+                            Правильні ходи
+                        </span>
+
+                        <strong id="resultCorrectMoves">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <div class="result-detail">
+
+                        <span id="resultWrongMovesLabel">
+                            Неправильні ходи
+                        </span>
+
+                        <strong id="resultWrongMoves">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+                <div class="result-buttons">
+
+                    <button
+                        id="nextGameButton"
+                        class="result-button result-primary"
+                    >
+                        🔄 Наступна гра
+                    </button>
+
+                    <button
+                        id="changeDeckButton"
+                        class="result-button"
+                    >
+                        🎴 Змінити колоду
+                    </button>
+
+                    <button
+                        id="resultLobbyButton"
+                        class="result-button result-secondary"
+                    >
+                        🏠 До лобі
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ПІДТВЕРДЖЕННЯ ВИХОДУ
+    ====================================================== -->
+
+    <div
+        id="exitConfirmOverlay"
+        class="confirm-overlay hidden"
+    >
+
+        <div class="confirm-modal">
+
+            <div class="confirm-icon">
+                ⚠
+            </div>
+
+            <h2 id="exitConfirmTitle">
+                ВИЙТИ З ГРИ?
+            </h2>
+
+            <p id="exitConfirmText">
+                Незавершена партія буде збережена. Ти зможеш продовжити її пізніше.
+            </p>
+
+            <div class="confirm-buttons">
+
+                <button
+                    id="confirmExitButton"
+                    class="result-button result-primary"
+                >
+                    ВИЙТИ
+                </button>
+
+                <button
+                    id="cancelExitButton"
+                    class="result-button result-secondary"
+                >
+                    СКАСУВАТИ
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         ТОСТ / ПОВІДОМЛЕННЯ
+    ====================================================== -->
+
+    <div
+        id="toast"
+        class="toast hidden"
+    ></div>
+
+
+    <script src="./game.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+        }
+    </script>
+
+</body>
+
+</html>
